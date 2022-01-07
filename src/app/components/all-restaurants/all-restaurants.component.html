@@ -1,0 +1,76 @@
+<div style="float: left; padding-left: 20px; padding-top: 30px">
+  <h2>Pomo & co</h2>
+  <div style="width: 200px">
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let menu of menus" [value]="menu">
+        {{ menu }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div
+    style="
+      border: 1px solid black;
+      width: 200px;
+      height: 200px;
+      margin-top: 50px;
+    "
+  >
+    <p style="padding-top: 50px; padding-left: 20px">
+      Your Order is ready now.
+    </p>
+    <p style="padding-left: 20px">Splint Doumo</p>
+    <p style="padding-left: 20px">Order Id: #ED564F</p>
+    <button style="padding-left: 20px">Details -></button>
+  </div>
+</div>
+
+<div style="padding-left: 250px; padding-top: 30px">
+  <textarea
+    rows="1"
+    cols="20"
+    placeholder="Search for an item"
+    style="float: right"
+  ></textarea>
+  <div style="padding-left: 60px; padding-top: 15px">
+    <h2>Category</h2>
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let cat of category" style="float: left; padding-left: 20px">
+        <button class="btn-primary" (click)="fnCategory(cat)">
+          {{ cat }}
+        </button>
+      </li>
+    </ul>
+  </div>
+  <br />
+  <div style="padding-left: 60px; padding-top: 15px">
+    <h2>Restaurants</h2>
+  </div>
+  <div>
+    <ul>
+      <li
+        style="float: left; width: 356px; height: 356px"
+        *ngFor="let res of result; let i = index"
+      >
+        <a (click)="details(res)">
+          <img
+            [src]="res.restaurantImage"
+            style="
+              width: 336px;
+              height: 176px;
+              padding: 0px 20px 20px 20px;
+              border-radius: 40px;
+            "
+          />
+        </a>
+        <div style="font-weight: bold; padding: 0px 20px 10px 20px">
+          {{ res.restaurantName }}
+        </div>
+        <div style="word-wrap: break-word; padding: 0px 20px">
+          {{ res.restaurantDescription }}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
